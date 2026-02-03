@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Zapobiega pojawianiu się pasków przewijania */
+  overflow: hidden;
 }
 
 .container {
@@ -23,12 +23,6 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-h1 {
-  font-size: 26px;
-  margin-bottom: 15px;
-  color: #ff4d6d;
-}
-
 .valentine-img {
   width: 100%;
   border-radius: 15px;
@@ -36,31 +30,28 @@ h1 {
 }
 
 .buttons {
-  position: relative;
-  height: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+  min-height: 150px;
 }
 
 button {
-  width: 140px;
-  height: 60px;
+  padding: 15px 25px;
   font-size: 20px;
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 #yesBtn {
   background: #ff4d6d;
   color: white;
-  z-index: 10; /* Żeby zawsze był nad przyciskiem NO */
 }
 
 #noBtn {
   background: #ddd;
   color: #555;
-  margin-left: 10px;
 }
