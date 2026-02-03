@@ -19,11 +19,9 @@ const messages = [
 ];
 
 noBtn.addEventListener("click", () => {
-    // Zmiana tekstu
     noBtn.innerText = messages[msgIndex];
     msgIndex = (msgIndex + 1) % messages.length;
 
-    // Skalowanie
     yesScale += 1;
     noScale -= 0.1;
 
@@ -50,4 +48,5 @@ yesBtn.addEventListener("click", () => {
     </div>
   `;
 });
+
 
