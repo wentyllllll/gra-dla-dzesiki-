@@ -11,6 +11,7 @@ noBtn.addEventListener("touchstart", (e) => {
 noBtn.addEventListener("mouseover", moveNo);
 
 function moveNo() {
+    // Obliczamy losową pozycję na całym ekranie
     const maxX = window.innerWidth - noBtn.offsetWidth;
     const maxY = window.innerHeight - noBtn.offsetHeight;
 
@@ -21,15 +22,15 @@ function moveNo() {
     noBtn.style.left = `${randomX}px`;
     noBtn.style.top = `${randomY}px`;
 
-    // YES rośnie, NO maleje
-    yesScale += 0.4;
-    noScale -= 0.15;
+    yesScale += 0.45; 
+    noScale -= 0.12;
 
     yesBtn.style.transform = `scale(${yesScale})`;
     noBtn.style.transform = `scale(${noScale})`;
 
-    if (noScale <= 0) {
-        noBtn.style.display = "none";
+    if (noScale <= 0.2) {
+        noBtn.style.opacity = "0";
+        noBtn.style.pointerEvents = "none";
     }
 }
 
@@ -37,13 +38,28 @@ yesBtn.addEventListener("click", () => {
     confetti({
         particleCount: 150,
         spread: 70,
-        origin: { y: 0.6 }
+        origin: { y: 0.6 },
+        colors: ['#ff0000', '#ff69b4', '#ffffff']
     });
 
     document.body.innerHTML = `
-    <div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#ff758c,#ff7eb3);text-align:center;font-family:'Comic Sans MS',cursive;padding:20px;color:white;">
-      <h1 style="font-size:34px;">SHE SAID YES 💘🥹</h1>
-      <p style="font-size:24px;">Best girlfriend and valentine in the whole world! I love you so much baby❤️❤️❤️</p>
+    <div style="
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#ff758c,#ff7eb3);
+      text-align:center;
+      font-family:'Comic Sans MS', cursive;
+      padding:20px;
+      color:white;
+    ">
+      <h1 style="font-size:32px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+        SHE SAID YES 💘🥹<br><br>
+        Best girlfriend and valentine in the whole world!<br>
+        I love you so much baby❤️❤️❤️
+      </h1>
     </div>
   `;
 });
