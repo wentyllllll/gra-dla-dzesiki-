@@ -18,25 +18,12 @@ const messages = [
     "Don't do this to me! 😢"
 ];
 
-noBtn.addEventListener("touchstart", (e) => {
-    e.preventDefault();
-    moveNo();
-});
-noBtn.addEventListener("mouseover", moveNo);
-
-function moveNo() {
-    const maxX = window.innerWidth - noBtn.offsetWidth;
-    const maxY = window.innerHeight - noBtn.offsetHeight;
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
-
-    noBtn.style.position = "fixed";
-    noBtn.style.left = `${randomX}px`;
-    noBtn.style.top = `${randomY}px`;
-
+noBtn.addEventListener("click", () => {
+    // Zmiana tekstu
     noBtn.innerText = messages[msgIndex];
     msgIndex = (msgIndex + 1) % messages.length;
 
+    // Skalowanie
     yesScale += 0.5;
     noScale -= 0.1;
 
@@ -46,7 +33,7 @@ function moveNo() {
     if (noScale <= 0.3) {
         noBtn.style.opacity = "0.5";
     }
-}
+});
 
 yesBtn.addEventListener("click", () => {
     confetti({
@@ -58,11 +45,8 @@ yesBtn.addEventListener("click", () => {
 
     document.body.innerHTML = `
     <div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#ff758c,#ff7eb3);text-align:center;font-family:'Comic Sans MS',cursive;padding:20px;color:white;">
-      <h1 style="font-size:32px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
-        SHE SAID YES! 💘🥹<br><br>
-        Best girlfriend and valentine in the whole world!<br>
-        I love you so much baby❤️❤️❤️
-      </h1>
+      <h1 style="font-size:32px;">SHE SAID YES! 💘🥹</h1>
+      <p style="font-size:24px;">Best girlfriend and valentine in the whole world! I love you so much baby❤️❤️❤️</p>
     </div>
   `;
 });
