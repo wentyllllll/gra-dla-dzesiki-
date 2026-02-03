@@ -1,41 +1,46 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 
-let scale = 1;
+let yesScale = 1;
+let noScale = 1;
 let msgIndex = 0;
 
 const messages = [
   "No 😭",
   "Are you sure?",
   "Pookie please... 🥺",
-  "Think again!",
+  "Really??",
   "I'm gonna cry...",
-  "You're breaking my heart 💔"
+  "Think again! ❤️"
 ];
 
-noBtn.addEventListener("mouseover", moveButton);
-noBtn.addEventListener("click", () => {
-  moveButton();
-  
-  noBtn.innerText = messages[msgIndex];
-  msgIndex = (msgIndex + 1) % messages.length;
-  
-  scale *= 1.8;
-  yesBtn.style.transform = `scale(${scale})`;
+function moveAndShrink() {
 
-  if (scale > 10) {
-    noBtn.style.display = "none";
-  }
-});
-
-function moveButton() {
   const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
   const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
   
   noBtn.style.position = "fixed";
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
+
+  noScale -= 0.1;
+  if (noScale < 0.2) noScale = 0.2; 
+
+  yesScale *= 1.6;
+  
+  yesBtn.style.transform = `scale(${yesScale})`;
+  noBtn.style.transform = `scale(${noScale})`;
+
+  noBtn.innerText = messages[msgIndex];
+  msgIndex = (msgIndex + 1) % messages.length;
+
+  if (yesScale > 12) {
+    noBtn.style.display = "none";
+  }
 }
+
+noBtn.addEventListener("click", moveAndShrink);
+noBtn.addEventListener("mouseover", moveAndShrink);
 
 yesBtn.addEventListener("click", () => {
   confetti({
