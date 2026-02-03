@@ -1,8 +1,9 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
+const headerText = document.getElementById("headerText");
+const mainGif = document.getElementById("mainGif");
 
-let yesScale = 1;
-let noScale = 1;
+let scale = 1;
 let msgIndex = 0;
 
 const messages = [
@@ -18,14 +19,10 @@ noBtn.addEventListener("click", () => {
   noBtn.innerText = messages[msgIndex];
   msgIndex = (msgIndex + 1) % messages.length;
   
-  yesScale += 0.5;
-  yesBtn.style.transform = `scale(${yesScale})`;
+  scale += 0.5;
+  yesBtn.style.transform = `scale(${scale})`;
 
-  noScale -= 0.1;
-  if (noScale < 0.3) noScale = 0.3; 
-  noBtn.style.transform = `scale(${noScale})`;
-
-  if (yesScale > 5) {
+  if (scale > 5) {
     noBtn.style.display = "none";
   }
 });
@@ -39,7 +36,7 @@ yesBtn.addEventListener("click", () => {
 
   document.body.innerHTML = `
     <div style="height:100dvh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#ffb6c1; text-align:center; padding:20px;">
-      <h1 style="font-size:30px; color:#d6336c; font-family:sans-serif;">YAYYY YOU SAID YESS!!!<br>I LOVE YOU DZESIKAAAAAAAA ❤️❤️❤️</h1>
+      <h1 style="font-size:30px; color:#d6336c;">YAYYY SHE SAID YESSS!<br>I LOVE YOU DZESIKAAAAAAAA ❤️❤️❤️</h1>
       <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" style="width:80%; max-width:300px; border-radius:15px; margin-top:20px;">
     </div>
   `;
