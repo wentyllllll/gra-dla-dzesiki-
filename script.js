@@ -39,8 +39,9 @@ yesBtn.addEventListener("click", () => {
 
   document.body.innerHTML = `
     <div style="height:100dvh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:linear-gradient(135deg, #ff9a9e, #fecfef); text-align:center;">
-      <h1 style="font-size:36px; color:#d6336c; font-family:'Georgia';">She said YES! 💖</h1>
+      <h1 style="font-size:36px; color:#d6336c; font-family:'Georgia';">She said YES! I LOVE YOU DZESIKAAAA 💖</h1>
       <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" style="width:80%; max-width:300px; border-radius:15px; margin-top:20px;">
     </div>
   `;
 });
+
